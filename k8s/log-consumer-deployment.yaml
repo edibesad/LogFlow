@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-consumer-app-deployment
+  labels:
+    app: logflow-log-consumer
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: logflow-log-consumer
+  template:
+    metadata:
+      labels:
+        app: logflow-log-consumer
+    spec:
+      containers:
+      - name: log-consumer
+        image: logflow/log-consumer
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 8081
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        env:
+        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+          value: host.docker.internal:9092
+        - name: SPRING_ELASTICSEARCH_URIS
+          value: http://host.docker.internal:9200

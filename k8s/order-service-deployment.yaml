@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-app-deployment
+  labels:
+    app: logflow-orderservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: logflow-orderservice
+  template:
+    metadata:
+      labels:
+        app: logflow-orderservice
+    spec:
+      containers:
+      - name: order-service
+        image: logflow/order-service
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 8080
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        env:
+        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+          value: host.docker.internal:9092
