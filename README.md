@@ -1,5 +1,5 @@
 # LogFlow
-![](https://tracker.edibesad.com/count.svg?ref=LogFlow&v=2)
+
 **TR** | [EN](#en)
 
 ---
@@ -101,3 +101,6 @@ Endpoints:
 - `localhost:8080/orders` — order-service
 - `localhost:5601` — Kibana
 - `localhost:9200` — Elasticsearch
+
+
+![](https://tracker.edibesad.com/count.svg?ref=LogFlow)
