@@ -1,5 +1,5 @@
 # LogFlow
-![](https://tracker.edibesad.com/count.svg?ref=LogFlow)
+![](https://tracker.edibesad.com/count.svg?ref=LogFlow&v=2)
 **TR** | [EN](#en)
 
 ---
