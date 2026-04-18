@@ -2,6 +2,7 @@ package com.logflow.log_consumer.elasticsearch;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,11 +12,15 @@ import co.elastic.clients.transport.rest_client.RestClientTransport;
 
 @Configuration
 public class ElasticSearchConfiguration {
+    @Value("${spring.elasticsearch.uris}")
+    private String elasticsearchUri;
 
     @Bean
     public RestClient restClient() {
+        HttpHost host = HttpHost.create(elasticsearchUri);
+
         RestClient restClient = RestClient.builder(
-                new HttpHost("localhost", 9200, "http")).build();
+               host).build();
 
         return restClient;
     }
