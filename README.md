@@ -103,4 +103,4 @@ Endpoints:
 - `localhost:9200` — Elasticsearch
 
 
-![](https://tracker.edibesad.com/count.svg?ref=LogFlow)
+<img src="https://tracker.edibesad.com/count.svg?ref=LogFlow" alt="views"/>
